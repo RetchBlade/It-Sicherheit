@@ -6,12 +6,11 @@
 
 # Das ganze wurde in Pycharm erstellt, Aufgabe1.txt muss sich im selben Verzeichnis befinden.
 # Am sonsten muss man den ganzen Pfad zur Datei im String rein schreiben
-# Aufgabe Erledigt von Lorenz Berkmans
 
 import matplotlib.pyplot as plt # Um den Plot, also Grafische Anzeige realisierbar zu machen
 
 def dateiLesen(datei): #liest die datei ein und wirft diese zurueck
-    with open('Aufgabe1.txt', encoding='utf-8') as file: # öffne Datei
+    with open(datei, encoding='utf-8') as file: # öffne Datei
         text = file.read() # lese datei und speichere Sie in text.
     return text # gib text zurueck
 
@@ -40,7 +39,7 @@ def plot_buchstaben_haeufigkeit(buchstabenHaeufigkeit): #Grafische darstellung
     plt.xlabel('Buchstabe') # x-achse beschriften
     plt.ylabel('Haeufigkeit') # y-achse beschriften
     plt.title('Buchstabenhaeufigkeit im Text') # Allgemeiner Title fuer den Plot
-    plt.show() # anzeigen lassen
+    plt.show() # anzeigen
 
 def substitutionen(verschluesselterText, buchstabenHaeufigkeit): # Entschluesslung Vorgang
 
@@ -50,7 +49,7 @@ def substitutionen(verschluesselterText, buchstabenHaeufigkeit): # Entschluesslu
     maxiBuchstabe = sortierte_buchstabenHaeufigkeit[0][0] # Maximaler Wert der auf am anfang gesetzt wurde nehmen
 
     # Maximal Buchstabe mit relative haeufigsten Buchstaben Subtrahiert um die Verschiebung der Buchstaben zu ermitteln
-    verschiebung = (ord(maxiBuchstabe) - ord("e")) # ord() sorgten fuer den passenden Ascii wert zum char
+    verschiebung = (ord(maxiBuchstabe) - ord("e")) # ord() sorgten fuer den passenden Ascii wert
 
     entschluesselter_text = "" # Leeren String
     for zeichen in verschluesselterText.lower(): # jeder buchstabe aus dem Text wird klein gemacht, um den Dict und den Austausch zu erleichtern
